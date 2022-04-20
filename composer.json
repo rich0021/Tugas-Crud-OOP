@@ -1,0 +1,17 @@
+{
+  "name": "naufal/crudoop",
+  "description": "tugas crud oop pwpb",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Src\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Muhammad Naufal Muttaqin",
+      "email": "kurabersayap002@gmail.com"
+    }
+  ],
+  "require": {}
+}
