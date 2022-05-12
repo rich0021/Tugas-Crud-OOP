@@ -6,7 +6,7 @@ use Src\Validation;
 use Src\Database;
 
 $koneksi = new Database();
-$action = $_GET['action'];
+$action = $_POST['action'];
 
 $input = [
     'nama_barang' => $_POST['nama_barang'],
