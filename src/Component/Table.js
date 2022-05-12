@@ -1,7 +1,7 @@
 import { DataContext } from "./Context.js";
 
 function Table() {
-  const { data, SetData } = React.useContext(DataContext);
+  const { data } = React.useContext(DataContext);
   return (
     <table className={`table table-hover border`}>
       <thead>

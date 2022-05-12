@@ -2,6 +2,7 @@ import { DataContext } from "./Context.js";
 
 function Modal(prop) {
   const {
+    SetData,
     nama_barang,
     SetNamaBarang,
     stok,
@@ -14,17 +15,29 @@ function Modal(prop) {
   } = React.useContext(DataContext);
 
   const handleClick = async () => {
-    const response = await fetch("http://localhost/crud/src/ProsesBarang.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
+    if (nama_barang && stok && harga_beli && harga_jual) {
+      const response = await fetch("http://localhost/crud/ProsesBarang.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/json",
+        },
+        body:
+          "action=" +
+          encodeURIComponent(action) +
+          "&nama_barang=" +
+          encodeURIComponent(nama_barang) +
+          "&stok=" +
+          encodeURIComponent(stok) +
+          "&harga_beli=" +
+          encodeURIComponent(harga_beli) +
+          "&harga_jual=" +
+          encodeURIComponent(harga_jual),
+      });
 
-    const result = await response.json();
-
-    console.log(result);
+      const result = await response.json();
+      SetData(result);
+    }
   };
 
   return (

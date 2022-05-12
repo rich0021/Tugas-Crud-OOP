@@ -5,7 +5,6 @@ session_start();
 
 use Src\Database;
 $conn = new Database();
-//Dengan Memakai Pagination
 $data_barang = json_encode($conn->tampil_data());
 ?>
 

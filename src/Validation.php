@@ -25,12 +25,11 @@ class Validation{
         return true;
     }
 
-    //validasi hanya boleh angka
+    //validasi harus ada
     private static function harus_ada($input){
         if(strlen($input) <= 0){
             return true;
         }else{
-            $_SESSION['message_validation'] = "Masih Ada Input Yang Kosong";
             return false;
         }
     }
@@ -40,7 +39,6 @@ class Validation{
         if(is_numeric($input)){
             return true;
         }else{
-            $_SESSION['message_validation'] = "Input Yang Dimasukan Hanya Boleh Angka";
             return false;
         }
     }
@@ -50,7 +48,6 @@ class Validation{
         if(preg_match("/[a-z A-Z]/", $input)){
             return true;
         }else{
-            $_SESSION['message_validation'] = "Input Yang Dimasukan Hanya Boleh Huruf";
             return false;
         }
     }
@@ -60,7 +57,6 @@ class Validation{
         if(strlen($input) <= $max){
             return true;
         }else{
-            $_SESSION['message_validation'] = "Input Yang Dimasukan Melebihi Batas";
             return false;
         }
     }
@@ -70,7 +66,6 @@ class Validation{
         if(strlen($input) >= $min){
             return true;
         }else{
-            $_SESSION['message_validation'] = "Input Yang Dimasukan Dibawah Batas";
             return false;
         }
     }

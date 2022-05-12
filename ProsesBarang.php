@@ -19,24 +19,25 @@ if($action == "add"){
     //parameter ke-1 tentukan validasi (Array)
     //parameter ke-2 input yang ingin divalidasi (Array)
     $validasi = Validation::validate([
-        'stok' => 'harus_ada|hanya_angka',
-        'harga_beli' => 'harus_ada|hanya_angka',
-        'harga_jual' => 'harus_ada|hanya_angka',
-        'nama_barang' => 'harus_ada|hanya_teks|max:10|min:3'
+        'stok' => 'hanya_angka',
+        'harga_beli' => 'hanya_angka',
+        'harga_jual' => 'hanya_angka',
+        'nama_barang' => 'hanya_teks|min:3|max:10'
     ], $input);
 
     if ($validasi) {
-        $query = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
-        header('location:index.php');
+        $query1 = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
+        $query2 = $koneksi->tampil_data();
+        echo json_encode($query2);
     }else{
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
+        echo json_encode("Gagal"); 
     }
 }else if ($action=="update"){
     $validasi = Validation::validate([
-        'stok' => 'harus_ada|hanya_angka',
-        'harga_beli' => 'harus_ada|hanya_angka',
-        'harga_jual' => 'harus_ada|hanya_angka',
-        'nama_barang' => 'harus_ada|hanya_teks|max:10|min:3'
+        'stok' => 'hanya_angka',
+        'harga_beli' => 'hanya_angka',
+        'harga_jual' => 'hanya_angka',
+        'nama_barang' => 'hanya_teks|max:10|min:3'
     ], $input);
 
     if ($validasi) {
