@@ -24,14 +24,15 @@ function LiveSearch() {
 
     const result = await response.json();
     SetData(result);
+    console.log(data);
   };
 
   return (
     <input
       type="text"
       onChange={(e) => {
-        SetQuery(e.target.value);
         SetAction("livesearch");
+        SetQuery(e.target.value);
       }}
     />
   );
