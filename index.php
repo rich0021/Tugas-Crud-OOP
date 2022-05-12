@@ -28,7 +28,9 @@ $data_barang = json_encode($conn->tampil_data());
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Table.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Modal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonModal.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/LiveSearch.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/UpperTable.js"></script>
+    
     <script data-plugins="transform-es2015-modules-umd" type="text/babel">
         import Table from "./src/Component/Table.js";
         import UpperTable from "./src/Component/UpperTable.js";

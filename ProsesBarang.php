@@ -8,16 +8,17 @@ use Src\Database;
 $koneksi = new Database();
 $action = $_POST['action'];
 
-$input = [
-    'nama_barang' => $_POST['nama_barang'],
-    'stok' => $_POST['stok'],
-    'harga_beli' => $_POST['harga_beli'],
-    'harga_jual' => $_POST['harga_jual']
-];
+
 
 if($action == "add"){
     //parameter ke-1 tentukan validasi (Array)
     //parameter ke-2 input yang ingin divalidasi (Array)
+    $input = [
+        'nama_barang' => $_POST['nama_barang'],
+        'stok' => $_POST['stok'],
+        'harga_beli' => $_POST['harga_beli'],
+        'harga_jual' => $_POST['harga_jual']
+    ];
     $validasi = Validation::validate([
         'stok' => 'hanya_angka',
         'harga_beli' => 'hanya_angka',
@@ -27,12 +28,18 @@ if($action == "add"){
 
     if ($validasi) {
         $query1 = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
-        $query2 = $koneksi->tampil_data();
-        echo json_encode($query2);
+        echo json_encode($input);
     }else{
         echo json_encode("Gagal"); 
     }
 }else if ($action=="update"){
+    $input = [
+        'nama_barang' => $_POST['nama_barang'],
+        'stok' => $_POST['stok'],
+        'harga_beli' => $_POST['harga_beli'],
+        'harga_jual' => $_POST['harga_jual']
+    ];
+
     $validasi = Validation::validate([
         'stok' => 'hanya_angka',
         'harga_beli' => 'hanya_angka',
@@ -47,8 +54,20 @@ if($action == "add"){
         header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 }else if($action=="tampil"){
-    $data_barang = $conn->tampil_data();
+    $data_barang = $koneksi->tampil_data();
     header("Content-Type: application/json");
     echo json_encode($data_barang);
+}else if($action=="livesearch"){
+    $data = $_POST['like'];
+    if ($data) {
+        $query = $koneksi->livesearch($data);
+        if($query){
+            echo json_encode($query);
+        }else{
+            echo json_encode($koneksi->tampil_data());
+        }
+    }else{
+        echo json_encode($koneksi->tampil_data());
+    }
 }
 ?>

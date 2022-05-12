@@ -36,7 +36,7 @@ function Modal(prop) {
       });
 
       const result = await response.json();
-      SetData(result);
+      SetData((prev) => [...prev, result]);
     }
   };
 
@@ -145,9 +145,7 @@ function Modal(prop) {
               type="button"
               data-bs-dismiss="modal"
               className={`btn btn-primary`}
-              onClick={() => {
-                handleClick(action);
-              }}
+              onClick={handleClick}
             >
               Simpan
             </button>

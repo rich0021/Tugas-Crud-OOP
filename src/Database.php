@@ -43,5 +43,14 @@ class Database{
     public function hapus_data($id_barang){
         mysqli_query($this->koneksi,"delete from tb_barang where id_barang='$id_barang'");
     }
+
+    public function livesearch($like){
+        $hasil = array();
+        $query = mysqli_query($this->koneksi,"SELECT * FROM tb_barang WHERE id_barang LIKE '%$like%' OR nama_barang LIKE '%$like%' OR stok LIKE '%$like%' OR harga_jual LIKE '%$like%' OR harga_beli LIKE '%$like%'");
+        while($row = mysqli_fetch_object($query)){
+            $hasil[] = $row;
+        }
+        return $hasil;
+    }
 }
 ?>
