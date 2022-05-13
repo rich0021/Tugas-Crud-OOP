@@ -28,6 +28,7 @@ $data_barang = json_encode($conn->tampil_data());
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Context.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonModal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonUpdate.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonDelete.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Table.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Modal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/LiveSearch.js"></script>
@@ -46,6 +47,7 @@ $data_barang = json_encode($conn->tampil_data());
             const [harga_beli, SetHargaBeli] = React.useState("");
             const [harga_jual, SetHargaJual] = React.useState("");
             const [action, SetAction] = React.useState("");
+            const [id, SetId] = React.useState();
             let provider = {
                 data, 
                 SetData, 
@@ -58,7 +60,9 @@ $data_barang = json_encode($conn->tampil_data());
                 harga_jual, 
                 SetHargaJual,
                 action,
-                SetAction
+                SetAction,
+                id,
+                SetId
             }
             return (
                 <DataContext.Provider value={provider}>

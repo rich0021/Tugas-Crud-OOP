@@ -12,6 +12,7 @@ function Modal(prop) {
     harga_jual,
     SetHargaJual,
     action,
+    id,
   } = React.useContext(DataContext);
 
   const handleClick = async () => {
@@ -27,6 +28,8 @@ function Modal(prop) {
           encodeURIComponent(action) +
           "&nama_barang=" +
           encodeURIComponent(nama_barang) +
+          "&id_barang=" +
+          encodeURIComponent(id) +
           "&stok=" +
           encodeURIComponent(stok) +
           "&harga_beli=" +
@@ -35,10 +38,11 @@ function Modal(prop) {
           encodeURIComponent(harga_jual),
       });
       const result = await response.json();
-      SetData((prev) => [...prev, result]);
+      console.log(result);
+      SetData(result[0]);
       Swal.fire({
         title: "Berhasil",
-        text: "Data Ditambahkan",
+        text: "Data " + result[1],
         icon: "success",
         confirmButtonText: "Tutup",
       });

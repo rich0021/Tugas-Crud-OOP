@@ -37,7 +37,7 @@ class Database{
     }
 
     public function update_data($nama_barang,$stok,$harga_beli,$harga_jual,$id_barang){
-        $query = mysqli_query($this->koneksi,"update tb_barang set nama_barang='$nama_barang',stok='$stok',harga_beli='$harga_beli',harga_jual='$harga_jual' where id_barang='$id_barang'");
+        mysqli_query($this->koneksi,"update tb_barang set nama_barang='$nama_barang', stok='$stok', harga_beli='$harga_beli', harga_jual='$harga_jual' where id_barang='$id_barang'");
     }
 
     public function hapus_data($id_barang){

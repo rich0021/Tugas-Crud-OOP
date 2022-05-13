@@ -28,7 +28,7 @@ if($action == "add"){
 
     if ($validasi) {
         $query1 = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
-        echo json_encode($input);
+        echo json_encode([$koneksi->tampil_data(), "Ditambahkan"]);
     }else{
         echo json_encode("Gagal"); 
     }
@@ -49,14 +49,14 @@ if($action == "add"){
 
     if ($validasi) {
         $koneksi->update_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual'],$_POST['id_barang']);
-        header('location:index.php');
+        echo json_encode([$koneksi->tampil_data(), "Diupdate"]);
     }else{
-        header("Location: " . $_SERVER["HTTP_REFERER"]);
+        echo json_encode("Gagal");
     }
-}else if($action=="tampil"){
-    $data_barang = $koneksi->tampil_data();
-    header("Content-Type: application/json");
-    echo json_encode($data_barang);
+}else if($action == "delete"){
+    $koneksi->hapus_data($_POST['id_barang']);
+    echo json_encode([$koneksi->tampil_data(), "Dihapus"]);
+
 }else if($action=="livesearch"){
     $data = $_POST['like'];
     if ($data) {

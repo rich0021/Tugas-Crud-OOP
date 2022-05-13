@@ -1,5 +1,6 @@
 import { DataContext } from "./Context.js";
 import ButtonUpdate from "./ButtonUpdate.js";
+import ButtonDelete from "./ButtonDelete.js";
 
 function Table() {
   const { data } = React.useContext(DataContext);
@@ -13,7 +14,7 @@ function Table() {
             <th scope="col">Stok</th>
             <th scope="col">Harga Beli</th>
             <th scope="col">Harga Jual</th>
-            <th scope="col">Actio</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +32,10 @@ function Table() {
                     stok={value.stok}
                     harga_beli={value.harga_beli}
                     harga_jual={value.harga_jual}
+                    id={value.id_barang}
                   />
+
+                  <ButtonDelete id={value.id_barang} />
                 </td>
               </tr>
             );
