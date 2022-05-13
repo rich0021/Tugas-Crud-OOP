@@ -34,9 +34,14 @@ function Modal(prop) {
           "&harga_jual=" +
           encodeURIComponent(harga_jual),
       });
-
       const result = await response.json();
       SetData((prev) => [...prev, result]);
+      Swal.fire({
+        title: "Berhasil",
+        text: "Data Ditambahkan",
+        icon: "success",
+        confirmButtonText: "Tutup",
+      });
     }
   };
 

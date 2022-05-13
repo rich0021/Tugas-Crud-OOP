@@ -64,7 +64,7 @@ if($action == "add"){
         if($query){
             echo json_encode($query);
         }else{
-            echo json_encode($koneksi->tampil_data());
+            echo json_encode("Tidak Ada");
         }
     }else{
         echo json_encode($koneksi->tampil_data());

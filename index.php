@@ -24,12 +24,15 @@ $data_barang = json_encode($conn->tampil_data());
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Context.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonModal.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonUpdate.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Table.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Modal.js"></script>
-    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonModal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/LiveSearch.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/UpperTable.js"></script>
+    
     
     <script data-plugins="transform-es2015-modules-umd" type="text/babel">
         import Table from "./src/Component/Table.js";

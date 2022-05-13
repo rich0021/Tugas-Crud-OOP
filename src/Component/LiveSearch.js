@@ -23,12 +23,17 @@ function LiveSearch() {
     });
 
     const result = await response.json();
-    SetData(result);
-    console.log(data);
+
+    if (result == "Tidak Ada") {
+      SetData(false);
+    } else {
+      SetData(result);
+    }
   };
 
   return (
     <input
+      style={{ width: "30%" }}
       type="text"
       onChange={(e) => {
         SetAction("livesearch");

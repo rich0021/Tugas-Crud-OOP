@@ -3,6 +3,7 @@ import { DataContext } from "./Context.js";
 function ButtonModal(prop) {
   const { SetNamaBarang, SetStok, SetHargaBeli, SetHargaJual, SetAction } =
     React.useContext(DataContext);
+
   const empty = () => {
     SetNamaBarang("");
     SetStok("");
