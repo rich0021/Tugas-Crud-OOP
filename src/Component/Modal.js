@@ -38,7 +38,6 @@ function Modal(prop) {
           encodeURIComponent(harga_jual),
       });
       const result = await response.json();
-      console.log(result);
       SetData(result[0]);
       Swal.fire({
         title: "Berhasil",
@@ -79,7 +78,7 @@ function Modal(prop) {
                   <tbody>
                     <tr>
                       <td>
-                        <label for="nama_barang">Nama Barang</label>
+                        <label htmlFor="nama_barang">Nama Barang</label>
                       </td>
                       <td> : </td>
                       <td>
@@ -94,7 +93,7 @@ function Modal(prop) {
                     </tr>
                     <tr>
                       <td>
-                        <label for="stok">Stok</label>
+                        <label htmlFor="stok">Stok</label>
                       </td>
                       <td> : </td>
                       <td>
@@ -109,7 +108,7 @@ function Modal(prop) {
                     </tr>
                     <tr>
                       <td>
-                        <label for="harga_beli">Harga Beli</label>
+                        <label htmlFor="harga_beli">Harga Beli</label>
                       </td>
                       <td> : </td>
                       <td>
@@ -124,7 +123,7 @@ function Modal(prop) {
                     </tr>
                     <tr>
                       <td>
-                        <label for="harga_jual">Harga Jual</label>
+                        <label htmlFor="harga_jual">Harga Jual</label>
                       </td>
                       <td> : </td>
                       <td>

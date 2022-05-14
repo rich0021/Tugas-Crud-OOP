@@ -1,5 +1,6 @@
 <?php
 // Muhammad Nafal Muttaqin XI-RPL 2
+header('Access-Control-Allow-Origin: *');
 require_once __DIR__."/vendor/autoload.php";
 session_start();
 
@@ -42,11 +43,11 @@ $data_barang = json_encode($conn->tampil_data());
 
         function App(){
             const [data, SetData] = React.useState(<?php echo $data_barang?>);
-            const [nama_barang, SetNamaBarang] = React.useState("");
-            const [stok, SetStok] = React.useState("");
-            const [harga_beli, SetHargaBeli] = React.useState("");
-            const [harga_jual, SetHargaJual] = React.useState("");
-            const [action, SetAction] = React.useState("");
+            const [nama_barang, SetNamaBarang] = React.useState();
+            const [stok, SetStok] = React.useState();
+            const [harga_beli, SetHargaBeli] = React.useState();
+            const [harga_jual, SetHargaJual] = React.useState();
+            const [action, SetAction] = React.useState();
             const [id, SetId] = React.useState();
             let provider = {
                 data, 

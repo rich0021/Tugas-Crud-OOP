@@ -2,11 +2,8 @@ import { DataContext } from "./Context.js";
 
 function LiveSearch() {
   const { action, SetData, SetAction } = React.useContext(DataContext);
-  const [query, SetQuery] = React.useState();
-
-  React.useEffect(() => {
-    handleChange();
-  }, [query]);
+  const [query, SetQuery] = React.useState("");
+  const [isTrue, SetTrue] = React.useState(false);
 
   const handleChange = async () => {
     const response = await fetch("http://localhost/crud/ProsesBarang.php", {
@@ -29,7 +26,14 @@ function LiveSearch() {
     } else {
       SetData(result);
     }
+    SetTrue(false);
   };
+
+  React.useEffect(() => {
+    if (isTrue) {
+      handleChange();
+    }
+  }, [query]);
 
   return (
     <input
@@ -38,6 +42,7 @@ function LiveSearch() {
       onChange={(e) => {
         SetAction("livesearch");
         SetQuery(e.target.value);
+        SetTrue(true);
       }}
     />
   );

@@ -34,7 +34,6 @@ function Table() {
                     harga_jual={value.harga_jual}
                     id={value.id_barang}
                   />
-
                   <ButtonDelete id={value.id_barang} />
                 </td>
               </tr>
@@ -54,8 +53,10 @@ function Table() {
               <th scope="col">Stok</th>
               <th scope="col">Harga Beli</th>
               <th scope="col">Harga Jual</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
+          <tbody></tbody>
         </table>
         <h1 style={{ textAlign: "center", marginTop: "20px" }}>
           Data Tidak Ada

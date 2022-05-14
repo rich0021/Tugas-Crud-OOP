@@ -28,7 +28,7 @@ class Database{
     }
 
     public function tambah_data($nama_barang,$stok,$harga_beli,$harga_jual){
-        mysqli_query($this->koneksi,"insert into tb_barang values (' ', '$nama_barang', '$stok', '$harga_beli', '$harga_jual')");
+        mysqli_query($this->koneksi,"insert into tb_barang values (' ', '$nama_barang', '$stok', '$harga_jual', '$harga_beli')");
     }
 
     public function get_by_id($id_barang){
