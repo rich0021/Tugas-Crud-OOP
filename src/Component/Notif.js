@@ -13,7 +13,7 @@ function Notif() {
       isNotif && (
         <div
           style={{
-            width: "250px",
+            width: "290px",
             position: "absolute",
             top: "30px",
             right: "50px",
@@ -49,7 +49,7 @@ function Notif() {
       isNotif && (
         <div
           style={{
-            width: "250px",
+            width: "290px",
             position: "absolute",
             top: "30px",
             right: "50px",
