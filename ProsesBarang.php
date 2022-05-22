@@ -29,9 +29,9 @@ if($action == "add"){
 
     if ($validasi) {
         $query1 = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
-        echo json_encode([$koneksi->tampil_data(), "Ditambahkan"]);
+        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Ditambahkan", "type" => "success"]);
     }else{
-        echo json_encode("Gagal"); 
+        echo json_encode(["value" => "", "message" => "Gagal Menambahkan Data", "type" => "failed"]);
     }
 }else if ($action=="update"){
     $input = [
@@ -50,13 +50,13 @@ if($action == "add"){
 
     if ($validasi) {
         $koneksi->update_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual'],$_POST['id_barang']);
-        echo json_encode([$koneksi->tampil_data(), "Diupdate"]);
+        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Diupdate", "type" => "success"]);
     }else{
-        echo json_encode("Gagal");
+        echo json_encode(["value" => "", "message" => "Gagal Megupdate Data", "type" => "failed"]);
     }
 }else if($action == "delete"){
     $koneksi->hapus_data($_POST['id_barang']);
-    echo json_encode([$koneksi->tampil_data(), "Dihapus"]);
+    echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Data Dihapus", "type" => "success"]);
 
 }else if($action=="livesearch"){
     $data = $_POST['like'];

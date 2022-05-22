@@ -1,6 +1,7 @@
 import { DataContext } from "./Context.js";
 import ButtonUpdate from "./ButtonUpdate.js";
 import ButtonDelete from "./ButtonDelete.js";
+import useNotif from "./useNotif.js";
 
 function Table() {
   const { data } = React.useContext(DataContext);

@@ -1,7 +1,14 @@
 import { DataContext } from "./Context.js";
 
 function ButtonDelete(prop) {
-  const { action, SetAction, SetData } = React.useContext(DataContext);
+  const {
+    action,
+    SetAction,
+    SetData,
+    SetNotif,
+    SetNotifMessage,
+    SetNotifType,
+  } = React.useContext(DataContext);
   const [isTrue, SetTrue] = React.useState(false);
 
   const notif = () => {
@@ -34,14 +41,19 @@ function ButtonDelete(prop) {
         encodeURIComponent(prop.id),
     });
     const result = await response.json();
-    SetData(result[0]);
-    Swal.fire({
-      title: "Berhasil",
-      text: "Data " + result[1],
-      icon: "success",
-      confirmButtonText: "Tutup",
-    });
-    SetTrue(false);
+
+    if (result.type == "success") {
+      SetData(result.value);
+      SetNotif(true);
+      SetNotifType("Success");
+      SetNotifMessage("Data " + result.message);
+      SetTrue(false);
+    } else {
+      SetNotif(true);
+      SetNotifType("Failed");
+      SetNotifMessage("Data " + result.message);
+      SetTrue(false);
+    }
   };
 
   React.useEffect(() => {

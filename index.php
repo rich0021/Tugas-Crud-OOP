@@ -30,11 +30,11 @@ $data_barang = json_encode($conn->tampil_data());
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonModal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonUpdate.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/ButtonDelete.js"></script>
+    <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Notif.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Table.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/Modal.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/LiveSearch.js"></script>
     <script data-plugins="transform-es2015-modules-umd" type="text/babel" src="src/Component/UpperTable.js"></script>
-    
     
     <script data-plugins="transform-es2015-modules-umd" type="text/babel">
         import Table from "./src/Component/Table.js";
@@ -49,6 +49,9 @@ $data_barang = json_encode($conn->tampil_data());
             const [harga_jual, SetHargaJual] = React.useState();
             const [action, SetAction] = React.useState();
             const [id, SetId] = React.useState();
+            const [isNotif, SetNotif] = React.useState(false);
+            const [notifMessage, SetNotifMessage] = React.useState("");
+            const [notifType, SetNotifType] = React.useState("");
             let provider = {
                 data, 
                 SetData, 
@@ -63,7 +66,13 @@ $data_barang = json_encode($conn->tampil_data());
                 action,
                 SetAction,
                 id,
-                SetId
+                SetId,
+                isNotif,
+                SetNotif,
+                notifMessage,
+                SetNotifMessage,
+                notifType,
+                SetNotifType
             }
             return (
                 <DataContext.Provider value={provider}>

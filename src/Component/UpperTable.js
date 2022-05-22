@@ -1,6 +1,7 @@
 import Modal from "./Modal.js";
 import ButtonModal from "./ButtonModal.js";
 import LiveSearch from "./LiveSearch.js";
+import Notif from "./Notif.js";
 
 function UpperTable() {
   return (
@@ -11,6 +12,7 @@ function UpperTable() {
         marginBottom: "20px",
       }}
     >
+      <Notif />
       <ButtonModal message="Tambah Barang" target="#ModalAU" />
       <LiveSearch />
       <Modal title="Tambah Barang" />

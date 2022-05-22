@@ -13,6 +13,9 @@ function Modal(prop) {
     SetHargaJual,
     action,
     id,
+    SetNotif,
+    SetNotifMessage,
+    SetNotifType,
   } = React.useContext(DataContext);
 
   const handleClick = async () => {
@@ -38,13 +41,21 @@ function Modal(prop) {
           encodeURIComponent(harga_jual),
       });
       const result = await response.json();
-      SetData(result[0]);
-      Swal.fire({
-        title: "Berhasil",
-        text: "Data " + result[1],
-        icon: "success",
-        confirmButtonText: "Tutup",
-      });
+
+      if (result.type == "success") {
+        SetData(result.value);
+        SetNotif(true);
+        SetNotifType("Success");
+        SetNotifMessage("Data " + result.message);
+      } else {
+        SetNotif(true);
+        SetNotifType("Failed");
+        SetNotifMessage("Data " + result.message);
+      }
+    } else {
+      SetNotif(true);
+      SetNotifType("Failed");
+      SetNotifMessage("Data Yang Dimasukkan Tidak Valid / Lengkap");
     }
   };
 
