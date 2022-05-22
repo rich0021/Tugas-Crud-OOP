@@ -29,7 +29,7 @@ if($action == "add"){
 
     if ($validasi) {
         $query1 = $koneksi->tambah_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual']);
-        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Data Ditambahkan", "type" => "success"]);
+        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Data Berhasil Ditambahkan", "type" => "success"]);
     }else{
         echo json_encode(["value" => "", "message" => "Gagal Menambahkan Data", "type" => "failed"]);
     }
@@ -50,7 +50,7 @@ if($action == "add"){
 
     if ($validasi) {
         $koneksi->update_data($_POST['nama_barang'],$_POST['stok'],$_POST['harga_beli'],$_POST['harga_jual'],$_POST['id_barang']);
-        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Data Ditambahkan", "type" => "success"]);
+        echo json_encode(["value" => $koneksi->tampil_data(), "message" => "Data Berhasil Diupdate", "type" => "success"]);
     }else{
         echo json_encode(["value" => "", "message" => "Gagal Megupdate Data", "type" => "failed"]);
     }
