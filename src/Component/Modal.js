@@ -46,11 +46,11 @@ function Modal(prop) {
         SetData(result.value);
         SetNotif(true);
         SetNotifType("Success");
-        SetNotifMessage("Data " + result.message);
+        SetNotifMessage(result.message);
       } else {
         SetNotif(true);
         SetNotifType("Failed");
-        SetNotifMessage("Data " + result.message);
+        SetNotifMessage(result.message);
       }
     } else {
       SetNotif(true);
